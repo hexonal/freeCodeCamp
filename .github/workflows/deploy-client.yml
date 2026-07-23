@@ -13,7 +13,8 @@ on:
           - espanol
           - chinese-traditional
           - italian
-          - portuguese
+          - portuguese 
+          - portuguese brazileiro
           - ukrainian
           - japanese
           - german
@@ -231,6 +232,9 @@ jobs:
         run: |
           pnpm install
           pnpm run build
+
+      - name: Free up space
+        run: pnpm run clean:packages
 
       - name: Tar Files
         run: tar -czf client-${{ matrix.lang-name-short }}.tar client/public
